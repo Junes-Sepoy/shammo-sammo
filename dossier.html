@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Dossier - Kaha Mind</title>
+    <link rel="stylesheet" href="https://use.typekit.net/gmb7aei.css">
+    <link rel="stylesheet" href="dossier.css">
+    <style>
+        /* Carousel wrapper */
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto 100px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        /* Arrow buttons */
+        .carousel-arrow {
+            flex-shrink: 0;
+            width: 60px;
+            height: 60px;
+            background: #000000;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            font-size: 26px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease, transform 0.2s ease;
+            z-index: 10;
+        }
+
+        .carousel-arrow:hover {
+            background: #333333;
+            transform: scale(1.08);
+        }
+
+        .carousel-arrow:disabled {
+            background: #cccccc;
+            cursor: default;
+            transform: none;
+        }
+
+        /* The sliding track */
+        .carousel-track-container {
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Each slide */
+        .carousel-slide {
+            min-width: 100%;
+            text-align: center;
+        }
+
+        .carousel-slide a {
+            display: inline-block;
+            transition: transform 0.3s ease;
+            width: 100%;
+        }
+
+        .carousel-slide a:hover {
+            transform: scale(1.02);
+        }
+
+        .newsletter-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Black placeholder rectangle for Issue 2 */
+        .newsletter-placeholder {
+            width: 100%;
+            aspect-ratio: 794 / 1050;
+            background: #000000;
+            border-radius: 8px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .click-to-view {
+            font-family: 'wayfinder-cf', serif;
+            font-size: 24px;
+            color: #000000;
+            margin-top: 20px;
+            display: block;
+            text-decoration: none;
+        }
+
+        .carousel-slide a:hover .click-to-view {
+            text-decoration: underline;
+        }
+
+        /* Issue label */
+        .issue-label {
+            font-family: 'wayfinder-cf', serif;
+            font-size: 20px;
+            color: #666666;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* Dot indicators */
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 30px;
+        }
+
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #cccccc;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: #000000;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-arrow {
+                width: 44px;
+                height: 44px;
+                font-size: 20px;
+            }
+
+            .carousel-wrapper {
+                gap: 15px;
+            }
+
+            .click-to-view {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-arrow {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+            }
+
+            .carousel-wrapper {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <!-- Background with characters -->
+        <div class="page-background"></div>
+
+        <!-- Header with logo and navigation -->
+        <header>
+            <h1 class="logo">
+                <span class="logo-line">Kaha</span>
+                <span class="logo-line">Mind</span>
+            </h1>
+            
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="services.html">Services</a>
+                <a href="dossier.html">The Dossier</a>
+                <a href="shop.html">Shop</a>
+                <a href="faq.html">FAQs</a>
+                <a href="edge.html">The Edge</a>
+            </nav>
+        </header>
+
+        <!-- Main content -->
+        <main>
+            <!-- Page title -->
+            <section class="page-header">
+                <h2>The Dossier</h2>
+            </section>
+
+            <!-- Newsletter Carousel -->
+            <div class="carousel-wrapper">
+                <!-- Left arrow -->
+                <button class="carousel-arrow" id="prevBtn" aria-label="Previous issue" disabled>&#8592;</button>
+
+                <!-- Sliding track -->
+                <div class="carousel-track-container">
+                    <div class="carousel-track" id="carouselTrack">
+
+                        <!-- Slide 1: Issue 1 -->
+                        <div class="carousel-slide">
+                            <span class="issue-label">Issue 1 — February 2026</span>
+                            <a href="newsletter-issue1.html">
+                                <img src="dossier1.png" alt="Kaha Mind Research Digest - Issue 1" class="newsletter-image">
+                                <span class="click-to-view">Click to View</span>
+                            </a>
+                        </div>
+
+                        <!-- Slide 2: Issue 2 (replace dossier1.png with the real image when ready) -->
+                        <div class="carousel-slide">
+                            <span class="issue-label">Issue 2 — February 2026</span>
+                            <a href="newsletter-issue2.html">
+                                <img src="titleimage2.png" alt="Kaha Mind Research Digest - Issue 2" class="newsletter-image">
+                                <span class="click-to-view">Click to View</span>
+                            </a>
+                        </div>
+
+                        <!-- Slide 3: Issue 3 -->
+                        <div class="carousel-slide">
+                            <span class="issue-label">Issue 3 — March 2026</span>
+                            <a href="newsletter-issue3.html">
+                                <img src="burnout.png" alt="Kaha Mind Research Digest - Issue 3" class="newsletter-image">
+                                <span class="click-to-view">Click to View</span>
+                            </a>
+                        </div>
+
+                        <!-- Slide 4: Issue 4 -->
+                        <div class="carousel-slide">
+                            <span class="issue-label">Issue 4 — April 2026</span>
+                            <a href="newsletter-issue4.html">
+                                <img src="culture.jpg" alt="Kaha Mind Research Digest - Issue 4" class="newsletter-image">
+                                <span class="click-to-view">Click to View</span>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Right arrow -->
+                <button class="carousel-arrow" id="nextBtn" aria-label="Next issue">&#8594;</button>
+            </div>
+
+            <!-- Dot indicators -->
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-index="0" aria-label="Issue 1"></button>
+                <button class="carousel-dot" data-index="1" aria-label="Issue 2"></button>
+                <button class="carousel-dot" data-index="2" aria-label="Issue 3"></button>
+                <button class="carousel-dot" data-index="3" aria-label="Issue 4"></button>
+            </div>
+        </main>
+
+        <!-- Footer with dark blue background -->
+        <footer class="footer-waves">
+            <div class="footer-layer footer-4"></div>
+            <div class="footer-layer footer-3"></div>
+            <div class="footer-layer footer-2"></div>
+            <div class="footer-layer footer-1"></div>
+            
+            <!-- Footer Content -->
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h2>Reach out to us:</h2>
+                    <p class="email">hello<span class="at-symbol">@</span><br>Kahamind.com</p>
+                </div>
+                
+                <div class="footer-right">
+                    <div class="footer-column">
+                        <a href="index.html">Home</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="services.html">Services</a>
+                        <a href="dossier.html">The Dossier</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="faq.html">FAQs</a>
+                    </div>
+                    
+                    <div class="footer-column footer-social">
+                        <p class="social-header">Also find<br>us on:</p>
+                        <a href="https://www.facebook.com/KahaMind/" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/kaha.mind/" target="_blank">Instagram</a>
+                        <a href="https://x.com/kahamind" target="_blank">X</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const dots = document.querySelectorAll('.carousel-dot');
+        const totalSlides = 4;
+        let current = 0;
+
+        function goTo(index) {
+            current = index;
+            track.style.transform = `translateX(-${current * 100}%)`;
+
+            // Update arrows
+            prevBtn.disabled = current === 0;
+            nextBtn.disabled = current === totalSlides - 1;
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === current);
+            });
+        }
+
+        prevBtn.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+        nextBtn.addEventListener('click', () => { if (current < totalSlides - 1) goTo(current + 1); });
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => goTo(parseInt(dot.dataset.index)));
+        });
+
+        // Initialise
+        goTo(0);
+    </script>
+</body>
+</html>

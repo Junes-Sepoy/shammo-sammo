@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Kaha Mind</title>
+    <link rel="stylesheet" href="https://use.typekit.net/gmb7aei.css">
+    <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+    <div class="page-container">
+        <!-- Background with characters -->
+        <div class="page-background"></div>
+
+        <!-- Header with logo and navigation -->
+        <header>
+            <h1 class="logo">
+                <span class="logo-line">Kaha</span>
+                <span class="logo-line">Mind</span>
+            </h1>
+            
+            <nav class="main-nav" id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="contact.html">Contact</a>
+                <a href="services.html">Services</a>
+                <a href="dossier.html">The Dossier</a>
+                <a href="shop.html">Shop</a>
+                <a href="faq.html">FAQs</a>
+                <a href="edge.html">The Edge</a>
+            </nav>
+        </header>
+
+        <!-- Main content -->
+        <main>
+            <!-- Page title -->
+            <section class="page-header">
+                <h2>Contact</h2>
+            </section>
+
+            <!-- Contact Info -->
+            <section class="contact-info">
+                <p class="contact-text">Signal/Whatsapp us at <a href="https://wa.me/919266870877" target="_blank">+91 92668 70877</a></p>
+                <p class="contact-text">Write to us at <a href="mailto:hello@kahamind.com">hello@kahamind.com</a></p>
+                <p class="contact-text or-text">OR</p>
+                <p class="contact-text">Fill up this form and we'll get back to you as soon as possible!</p>
+            </section>
+
+            <!-- Contact Form -->
+            <section class="contact-form-section">
+                <!-- Success/Error Messages -->
+                <div id="formMessage" style="display: none; padding: 15px; margin-bottom: 20px; border-radius: 4px; text-align: center; font-size: 16px;"></div>
+
+                <!--
+                    DUAL-SUBMIT FORM:
+                    - Sends to Web3Forms (existing email notification flow to hello@kahamind.com)
+                    - ALSO sends to Zoho CRM WebToLeadForm (creates a Lead, triggers existing Deluge workflows)
+                    Zoho field name mapping is handled in the <script> at the bottom of this file.
+                -->
+                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+
+                    <!-- Web3Forms required hidden fields -->
+                    <input type="hidden" name="access_key" value="37b5f01a-e781-4f14-9931-036def961192">
+                    <input type="hidden" name="subject" value="New Contact Form Submission - Kaha Mind">
+                    <input type="hidden" name="from_name" value="Kaha Mind Website">
+                    <!-- Honeypot spam protection -->
+                    <input type="checkbox" name="botcheck" style="display: none;">
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" name="Full Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pronouns">Pronouns</label>
+                        <select id="pronouns" name="Pronouns">
+                            <option value="" disabled selected></option>
+                            <option value="He/His">He/His</option>
+                            <option value="She/Her">She/Her</option>
+                            <option value="They/Them">They/Them</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number *</label>
+                        <input type="tel" id="phoneNumber" name="Phone Number" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="Email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="age">Age *</label>
+                        <input type="number" id="age" name="Age" min="1" max="120" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="concerns">What concerns are you seeking help for? *</label>
+                        <textarea id="concerns" name="Concerns" rows="6" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Where are you currently based? *</label>
+                        <select id="location" name="Location" required>
+                            <option value="" disabled selected></option>
+                            <option value="India">India</option>
+                            <option value="International">International</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">Could you let us know your city? *</label>
+                        <input type="text" id="city" name="City" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="previousTherapy">Have you ever been to therapy before? *</label>
+                        <textarea id="previousTherapy" name="Have you ever been to therapy before?" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="referral">Do you know anyone who has taken therapy with us? *</label>
+                        <textarea id="referral" name="Do you know anyone who has taken therapy with us?" rows="2" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </section>
+        </main>
+
+        <!-- Footer with dark blue background -->
+        <footer class="footer-waves">
+            <div class="footer-layer footer-4"></div>
+            <div class="footer-layer footer-3"></div>
+            <div class="footer-layer footer-2"></div>
+            <div class="footer-layer footer-1"></div>
+            
+            <!-- Footer Content -->
+            <div class="footer-content">
+                <div class="footer-left">
+                    <h2>Reach out to us:</h2>
+                    <p class="email">hello<span class="at-symbol">@</span><br>Kahamind.com</p>
+                </div>
+                
+                <div class="footer-right">
+                    <div class="footer-column">
+                        <a href="index.html">Home</a>
+                        <a href="contact.html">Contact</a>
+                        <a href="services.html">Services</a>
+                        <a href="dossier.html">The Dossier</a>
+                        <a href="shop.html">Shop</a>
+                        <a href="faq.html">FAQs</a>
+                    </div>
+                    
+                    <div class="footer-column footer-social">
+                        <p class="social-header">Also find<br>us on:</p>
+                        <a href="https://www.facebook.com/KahaMind/" target="_blank">Facebook</a>
+                        <a href="https://www.instagram.com/kaha.mind/" target="_blank">Instagram</a>
+                        <a href="https://x.com/kahamind" target="_blank">X</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // =============================================================================
+        // DUAL-SUBMIT: Web3Forms (email) + Zoho CRM (lead creation)
+        // The Zoho config below comes from the existing /getstarted/ form. It must NOT
+        // be changed unless the Zoho webform itself is regenerated, because the CRM
+        // field mappings + Deluge workflows depend on these exact field names.
+        // =============================================================================
+
+        const ZOHO_CONFIG = {
+            endpoint: 'https://crm.zoho.in/crm/WebToLeadForm',
+            xnQsjsdp: '49c83398dfa20497f95319309ebd8ff1a733075734fb508de7bc5f80430666ca',
+            xmIwtLD:  '3fe9d65965a7c4bdf46a58bb2f9e242c3d37d4a66188b73017b2f60de370d82c96c3304a2ea1ea0898bff7f62afee62f',
+            actionType: 'TGVhZHM='  // Base64 for "Leads"
+        };
+
+        // Maps the website form's field names (left) to Zoho's field names (right).
+        // Do not edit the right-hand side without first updating the Zoho webform.
+        const FIELD_MAP = {
+            'Full Name':     'Last Name',
+            'Pronouns':      'LEADCF2',
+            'Phone Number':  'Mobile',
+            'Email':         'Email',
+            'Age':           'LEADCF12',
+            'Concerns':      'LEADCF1',
+            'Location':      'LEADCF16',
+            'City':          'LEADCF13',
+            'Have you ever been to therapy before?':         'LEADCF8',
+            'Do you know anyone who has taken therapy with us?': 'LEADCF11'
+        };
+
+        function buildZohoPayload(formData) {
+            const payload = new FormData();
+            payload.append('xnQsjsdp', ZOHO_CONFIG.xnQsjsdp);
+            payload.append('xmIwtLD',  ZOHO_CONFIG.xmIwtLD);
+            payload.append('actionType', ZOHO_CONFIG.actionType);
+            payload.append('returnURL', 'null');
+            payload.append('aG9uZXlwb3Q', '');  // honeypot — must be empty
+
+            for (const [websiteField, zohoField] of Object.entries(FIELD_MAP)) {
+                const value = formData.get(websiteField);
+                if (value !== null && value !== undefined) {
+                    payload.append(zohoField, value);
+                }
+            }
+            return payload;
+        }
+
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const form = e.target;
+            const messageDiv = document.getElementById('formMessage');
+            const submitBtn = form.querySelector('.submit-btn');
+            const formData = new FormData(form);
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+
+            // Fire BOTH submissions in parallel.
+            // Zoho uses no-cors (their endpoint doesn't return CORS headers; response is
+            // opaque, but the POST does go through). We rely on Web3Forms' response for
+            // UI feedback since it returns proper JSON.
+            const zohoPromise = fetch(ZOHO_CONFIG.endpoint, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: buildZohoPayload(formData)
+            }).catch(err => console.warn('Zoho submission error:', err));
+
+            const emailPromise = fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            try {
+                const [emailResponse] = await Promise.all([emailPromise, zohoPromise]);
+                const data = await emailResponse.json();
+
+                if (data.success) {
+                    messageDiv.textContent = "Thank you! Your message has been sent successfully. We'll get back to you soon.";
+                    messageDiv.style.backgroundColor = '#d4edda';
+                    messageDiv.style.color = '#155724';
+                    messageDiv.style.border = '1px solid #c3e6cb';
+                    messageDiv.style.display = 'block';
+                    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    form.reset();
+                    setTimeout(function() { messageDiv.style.display = 'none'; }, 6000);
+                } else {
+                    throw new Error(data.message || 'Submission failed');
+                }
+            } catch (error) {
+                messageDiv.textContent = 'Something went wrong. Please try again or email us directly at hello@kahamind.com';
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+                messageDiv.style.display = 'block';
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(function() { messageDiv.style.display = 'none'; }, 6000);
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+
+        // Fallback: handle ?success or ?error in URL (kept from original)
+        window.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const messageDiv = document.getElementById('formMessage');
+            
+            if (urlParams.has('success')) {
+                messageDiv.textContent = "Thank you! Your message has been sent successfully. We'll get back to you soon.";
+                messageDiv.style.backgroundColor = '#d4edda';
+                messageDiv.style.color = '#155724';
+                messageDiv.style.border = '1px solid #c3e6cb';
+                messageDiv.style.display = 'block';
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                document.getElementById('contactForm').reset();
+                setTimeout(function() {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            } else if (urlParams.has('error')) {
+                messageDiv.textContent = decodeURIComponent(urlParams.get('error'));
+                messageDiv.style.backgroundColor = '#f8d7da';
+                messageDiv.style.color = '#721c24';
+                messageDiv.style.border = '1px solid #f5c6cb';
+                messageDiv.style.display = 'block';
+                messageDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(function() {
+                    window.history.replaceState({}, document.title, window.location.pathname);
+                    messageDiv.style.display = 'none';
+                }, 5000);
+            }
+        });
+    </script>
+</body>
+</html>

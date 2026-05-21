@@ -1,0 +1,561 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: white;
+    font-family: 'Times New Roman', serif;
+    zoom: 0.67;
+    cursor: url('edge-cursor.png') 24 24, auto;
+}
+
+* {
+    cursor: url('edge-cursor.png') 24 24, auto;
+}
+
+.page-container {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Page background with characters */
+.page-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 250px;
+    background-image: url('other-pages-background.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 280px 20px 20px;
+}
+
+.logo {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 80px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000000;
+    margin-bottom: 120px;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    opacity: 0;
+    animation: logoFlip 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.logo-line {
+    display: block;
+}
+
+.logo-line:first-child {
+    font-size: 80px;
+}
+
+.logo-line:last-child {
+    font-size: 100px;
+}
+
+/* Logo flip animation */
+@keyframes logoFlip {
+    0% {
+        transform: rotateX(0deg) translateZ(0);
+        opacity: 0;
+    }
+    50% {
+        transform: rotateX(180deg) translateZ(80px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateX(360deg) translateZ(0);
+        opacity: 1;
+    }
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+/* Fade elements */
+.fade-element {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.fade-element.visible {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-nav a {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav a:hover {
+    opacity: 0.6;
+}
+
+/* Main content */
+main {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 80px 60px;
+}
+
+/* Page header */
+.page-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.page-header h2 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 100px;
+    font-weight: 700;
+    color: #000000;
+}
+
+/* Edge Content */
+.edge-content {
+    max-width: 1000px;
+    margin: 0 auto 100px;
+}
+
+.intro-text {
+    margin-bottom: 50px;
+}
+
+.intro-text p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.section h3 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.section h4 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.section p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    color: #000000;
+}
+
+.section ul,
+.section ol {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.section li {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.section a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.section a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.section strong {
+    font-weight: 700;
+}
+
+.section em {
+    font-style: italic;
+}
+
+.faq-section {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-item:last-of-type {
+    border-bottom: none;
+}
+
+/* Footer with dark blue background */
+.footer-waves {
+    position: relative;
+    width: 100%;
+    /*max-width: 1920px;*/
+    height: 350px;
+    margin: 200px auto 0;
+    overflow: visible;
+    background: #1e3a5f;
+}
+
+.footer-layer {
+    display: none;
+}
+
+.footer-4 {
+    display: none;
+}
+
+.footer-3 {
+    display: none;
+}
+
+.footer-2 {
+    display: none;
+}
+
+.footer-1 {
+    display: none;
+}
+
+/* Footer text content */
+.footer-content {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 80px;
+    color: #ffffff;
+}
+
+.footer-left h2 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 28px;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.email {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.at-symbol {
+    display: inline-block;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    line-height: 47px;
+    text-align: center;
+    margin: 0 5px;
+    font-size: 48px;
+    vertical-align: middle;
+}
+
+.footer-right {
+    display: flex;
+    gap: 120px;
+    padding-bottom: 10px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-column a {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column a:hover {
+    opacity: 0.7;
+}
+
+.social-header {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 20px;
+    margin-bottom: 8px;
+    line-height: 1.3;
+}
+
+.footer-social {
+    gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .page-background {
+        width: 100%;
+    }
+    
+    header {
+        padding: 200px 20px 30px;
+    }
+    
+    .logo {
+        font-size: 65px;
+    }
+    
+    .logo-line:last-child {
+        font-size: 80px;
+    }
+    
+    main {
+        padding: 40px 50px;
+    }
+    
+    .page-header h2 {
+        font-size: 75px;
+    }
+    
+    .services-content {
+        gap: 60px;
+    }
+    
+    .service-column h3 {
+        font-size: 36px;
+    }
+    
+    .footer-waves {
+        height: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: 180px 20px 25px;
+    }
+    
+    .logo {
+        font-size: 50px;
+    }
+    
+    .logo-line:last-child {
+        font-size: 62px;
+    }
+    
+    .main-nav {
+        gap: 25px;
+    }
+    
+    .main-nav a {
+        font-size: 20px;
+    }
+    
+    main {
+        padding: 30px 30px;
+    }
+    
+    .page-header h2 {
+        font-size: 60px;
+    }
+    
+    .intro {
+        font-size: 20px;
+    }
+    
+    .services-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+    }
+    
+    .service-column h3 {
+        font-size: 32px;
+    }
+    
+    .service-column p {
+        font-size: 17px;
+    }
+    
+    .footer-waves {
+        height: 320px;
+    }
+    
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 40px;
+        padding: 0 40px;
+        bottom: 120px;
+        align-items: flex-end;
+    }
+    
+    .email {
+        font-size: 50px;
+    }
+    
+    .at-symbol {
+        width: 50px;
+        height: 50px;
+        line-height: 42px;
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-background {
+        height: 180px;
+    }
+    
+    header {
+        padding: 150px 15px 20px;
+    }
+    
+    .logo {
+        font-size: 40px;
+        margin-bottom: 100px;
+    }
+    
+    .logo-line:last-child {
+        font-size: 50px;
+    }
+    
+    .main-nav {
+        gap: 15px;
+    }
+    
+    .main-nav a {
+        font-size: 22px;
+    }
+    
+    main {
+        padding: 25px 20px;
+    }
+    
+    .page-header {
+        margin-bottom: 50px;
+    }
+    
+    .page-header h2 {
+        font-size: 45px;
+    }
+    
+    .intro {
+        font-size: 18px;
+    }
+    
+    .service-column h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .service-column p {
+        font-size: 22px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+    }
+    
+    .footer-waves {
+        height: 280px;
+        margin-top: 60px;
+    }
+    
+    .footer-content {
+        padding: 0 25px;
+        bottom: 20px;
+    }
+    
+    .footer-left h2 {
+        font-size: 18px;
+    }
+    
+    .email {
+        font-size: 28px;
+        font-size: 36px;
+    }
+    
+    .at-symbol {
+        width: 32px;
+        height: 32px;
+        line-height: 28px;
+        font-size: 26px;
+    }
+    
+    .footer-right {
+        flex-direction: row;
+        gap: 25px;
+    }
+    
+    .footer-column a {
+        font-size: 18px;
+    }
+    
+    .social-header {
+        font-size: 18px;
+    }
+}
+
+/* Updated: Mon Feb  2 13:32:03 UTC 2026 - Mobile footer lowered to 20px */

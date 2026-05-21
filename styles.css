@@ -1,0 +1,556 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+body {
+    background: white;
+    position: relative;
+    zoom: 0.67;
+}
+
+.page-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.background-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    min-width: 100%;
+    height: 1600px;
+    background-image: url('background.png');
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+    pointer-events: none;
+}
+
+/* Main content */
+main {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    margin: 0;
+}
+
+/* Hero section with title */
+.hero-section {
+    margin-top: 1300px;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.main-title {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 180px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 1;
+    color: #000000;
+    transform-style: preserve-3d;
+    opacity: 0;
+}
+
+.main-title.backflip {
+    animation: backflip3D 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
+
+.title-line {
+    display: block;
+}
+
+.title-line:first-child {
+    font-size: 180px;
+}
+
+.title-line:last-child {
+    font-size: 220px;
+}
+
+/* 3D Backflip Animation */
+@keyframes backflip3D {
+    0% {
+        transform: rotateX(0deg) translateZ(0);
+        opacity: 0;
+    }
+    50% {
+        transform: rotateX(180deg) translateZ(80px);
+        opacity: 0.5;
+    }
+    100% {
+        transform: rotateX(360deg) translateZ(0);
+        opacity: 1;
+    }
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    padding: 80px 20px 40px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.main-nav.visible {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.main-nav a {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 28px;
+    color: #000000;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav a:hover {
+    opacity: 0.6;
+}
+
+/* Tagline */
+.tagline {
+    text-align: center;
+    padding: 60px 40px 120px;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.tagline.visible {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.tagline p {
+    font-family: 'Times New Roman', serif;
+    font-size: 32px;
+    line-height: 1.6;
+    color: #000000;
+}
+
+/* Talk to Us Button */
+.talk-to-us-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0;
+    padding: 50px 0;
+}
+
+.talk-to-us-button {
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.talk-to-us-button img {
+    width: 200px;
+    height: 200px;
+    animation: spin 8s linear infinite;
+}
+
+.talk-to-us-button:hover img {
+    animation-play-state: paused;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Fade in up animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Fade elements */
+.fade-element {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+/* Footer with dark blue background */
+.footer-waves {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    margin: 200px 0 0 0;
+    overflow: visible;
+    background: #1e3a5f;
+}
+
+.footer-layer {
+    display: none;
+}
+
+.footer-4 {
+    display: none;
+}
+
+.footer-3 {
+    display: none;
+}
+
+.footer-2 {
+    display: none;
+}
+
+.footer-1 {
+    display: none;
+}
+
+/* Footer text content */
+.footer-content {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 80px;
+    color: #ffffff;
+}
+
+.footer-left h2 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.email {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 60px;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.at-symbol {
+    display: inline-block;
+    border: 4px solid #ffffff;
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    line-height: 47px;
+    text-align: center;
+    margin: 0 5px;
+    font-size: 48px;
+    vertical-align: middle;
+}
+
+.footer-right {
+    display: flex;
+    gap: 120px;
+    padding-bottom: 10px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-column a {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 20px;
+    color: #ffffff;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.footer-column a:hover {
+    opacity: 0.7;
+}
+
+.social-header {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 20px;
+    margin-bottom: 10px;
+    line-height: 1.3;
+}
+
+.footer-social {
+    gap: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .background-pattern {
+        width: 100%;
+        height: 1200px;
+        background-size: cover;
+    }
+    
+    .main-title {
+        font-size: 120px;
+    }
+    
+    .title-line:first-child {
+        font-size: 120px;
+    }
+    
+    .title-line:last-child {
+        font-size: 150px;
+    }
+    
+    .hero-section {
+        margin-top: 900px;
+    }
+    
+    .main-nav {
+        gap: 35px;
+    }
+    
+    .main-nav a {
+        font-size: 24px;
+    }
+    
+    .tagline p {
+        font-size: 28px;
+    }
+    
+    .footer-waves {
+        height: 350px;
+    }
+    
+    .footer-content {
+        padding: 0 50px;
+        bottom: 60px;
+    }
+    
+    .email {
+        font-size: 70px;
+    }
+    
+    .at-symbol {
+        width: 65px;
+        height: 65px;
+        line-height: 55px;
+        font-size: 55px;
+    }
+    
+    .footer-right {
+        gap: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .background-pattern {
+        width: 100%;
+        background-size: cover;
+        height: 800px;
+    }
+    
+    .main-title {
+        font-size: 80px;
+    }
+    
+    .title-line:first-child {
+        font-size: 80px;
+    }
+    
+    .title-line:last-child {
+        font-size: 100px;
+    }
+    
+    .hero-section {
+        margin-top: 600px;
+    }
+    
+    .main-nav {
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 30px 20px;
+    }
+    
+    .main-nav a {
+        font-size: 20px;
+    }
+    
+    .tagline p {
+        font-size: 24px;
+        padding: 40px 30px 80px;
+    }
+    
+    .footer-waves {
+        height: 320px;
+        margin-top: 150px;
+    }
+    
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 40px;
+        padding: 0 40px;
+        bottom: 120px;
+    }
+    
+    .footer-left h2 {
+        font-size: 28px;
+    }
+    
+    .email {
+        font-size: 50px;
+    }
+    
+    .at-symbol {
+        width: 50px;
+        height: 50px;
+        line-height: 42px;
+        font-size: 42px;
+        border: 3px solid #ffffff;
+    }
+    
+    .footer-right {
+        flex-direction: row;
+        gap: 60px;
+        padding-bottom: 0;
+    }
+    
+    .footer-column a {
+        font-size: 22px;
+    }
+    
+    .social-header {
+        font-size: 22px;
+    }
+    
+    .talk-to-us-button img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .talk-to-us-container {
+        margin: 60px 0;
+        padding: 30px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .background-pattern {
+        height: 600px;
+    }
+    
+    .main-title {
+        font-size: 60px;
+    }
+    
+    .title-line:first-child {
+        font-size: 60px;
+    }
+    
+    .title-line:last-child {
+        font-size: 75px;
+    }
+    
+    .hero-section {
+        margin-top: 450px;
+        height: 30vh;
+    }
+    
+    .main-nav {
+        gap: 15px;
+        padding: 20px 15px;
+    }
+    
+    .main-nav a {
+        font-size: 22px;
+    }
+    
+    .tagline {
+        padding: 30px 20px 60px;
+    }
+    
+    .tagline p {
+        font-size: 20px;
+    }
+    
+    .footer-waves {
+        height: 280px;
+        margin-top: 100px;
+    }
+    
+    .footer-content {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+        gap: 20px;
+        padding: 0 25px;
+        bottom: 20px;
+    }
+    
+    .footer-left h2 {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .email {
+        font-size: 28px;
+    }
+    
+    .at-symbol {
+        width: 32px;
+        height: 32px;
+        line-height: 28px;
+        font-size: 26px;
+        border: 2px solid #ffffff;
+        margin: 0 3px;
+    }
+    
+    .footer-right {
+        flex-direction: row;
+        gap: 20px;
+    }
+    
+    .footer-column {
+        gap: 12px;
+    }
+    
+    .footer-column a {
+        font-size: 18px;
+    }
+    
+    .social-header {
+        font-size: 18px;
+        margin-bottom: 8px;
+    }
+    
+    .talk-to-us-button img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .talk-to-us-container {
+        margin: 40px 0;
+        padding: 20px 0;
+    }
+}
+
+/* Updated: Mon Feb  2 13:28:04 UTC 2026 - Mobile footer lowered to 20px */
