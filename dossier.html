@@ -240,11 +240,21 @@
                             </a>
                         </div>
 
-                        <!-- Slide 4: Issue 4 -->
+                        <!-- Slide 4: Issue 5 -->
                         <div class="carousel-slide">
                             <span class="issue-label">Issue 5 — May 2026</span>
                             <a href="newsletter-issue5.html">
                                 <img src="hands.png" alt="Kaha Mind Research Digest - Issue 5" class="newsletter-image">
+                                <span class="click-to-view">Click to View</span>
+                            </a>
+                        </div>
+
+
+                        <!-- Slide 4: Issue 6 -->
+                        <div class="carousel-slide">
+                            <span class="issue-label">Issue 6 — June 2026</span>
+                            <a href="newsletter-issue6 .html">
+                                <img src="Dossier 6 title image.png" alt="Kaha Mind Research Digest - Issue 6" class="newsletter-image">
                                 <span class="click-to-view">Click to View</span>
                             </a>
                         </div>
@@ -263,6 +273,7 @@
                 <button class="carousel-dot" data-index="2" aria-label="Issue 3"></button>
                 <button class="carousel-dot" data-index="3" aria-label="Issue 4"></button>
                 <button class="carousel-dot" data-index="4" aria-label="Issue 5"></button>
+                <button class="carousel-dot" data-index="4" aria-label="Issue 6"></button>
             </div>
         </main>
 
@@ -307,7 +318,7 @@
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
         const dots = document.querySelectorAll('.carousel-dot');
-        const totalSlides = 5;
+        const totalSlides = 6;
         let current = 0;
 
         function goTo(index) {
