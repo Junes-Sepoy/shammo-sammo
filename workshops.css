@@ -13,7 +13,7 @@ html, body {
 
 body {
     background: white;
-    position: relative;
+    font-family: 'Times New Roman', serif;
     zoom: 0.67;
 }
 
@@ -22,68 +22,56 @@ body {
     overflow: hidden;
 }
 
-.background-pattern {
+/* Page background with characters */
+.page-background {
     position: absolute;
     top: 0;
     left: 0;
-    right: 0;
     width: 100%;
-    min-width: 100%;
-    height: 1600px;
-    background-image: url('background.png');
+    height: 250px;
+    background-image: url('other-pages-background.png');
     background-size: cover;
     background-position: top center;
     background-repeat: no-repeat;
     pointer-events: none;
+    z-index: 1;
 }
 
-/* Main content */
-main {
+/* Header */
+header {
     position: relative;
     z-index: 10;
-    width: 100%;
-    margin: 0;
-}
-
-/* Hero section with title */
-.hero-section {
-    margin-top: 1300px;
-    height: 40vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    perspective: 1000px;
-}
-
-.main-title {
-    font-family: 'wayfinder-cf', serif;
-    font-size: 180px;
-    font-weight: 700;
     text-align: center;
+    padding: 280px 20px 20px;
+}
+
+.logo {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 80px;
+    font-weight: 700;
     line-height: 1;
     color: #000000;
+    margin-bottom: 120px;
     transform-style: preserve-3d;
+    perspective: 1000px;
     opacity: 0;
+    animation: logoFlip 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
 }
 
-.main-title.backflip {
-    animation: backflip3D 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
-}
-
-.title-line {
+.logo-line {
     display: block;
 }
 
-.title-line:first-child {
-    font-size: 180px;
+.logo-line:first-child {
+    font-size: 80px;
 }
 
-.title-line:last-child {
-    font-size: 220px;
+.logo-line:last-child {
+    font-size: 100px;
 }
 
-/* 3D Backflip Animation */
-@keyframes backflip3D {
+/* Logo flip animation */
+@keyframes logoFlip {
     0% {
         transform: rotateX(0deg) translateZ(0);
         opacity: 0;
@@ -103,13 +91,25 @@ main {
     display: flex;
     justify-content: center;
     gap: 50px;
-    padding: 80px 20px 40px;
+    flex-wrap: wrap;
+}
+
+/* Fade elements */
+.fade-element {
     opacity: 0;
     transform: translateY(20px);
 }
 
-.main-nav.visible {
+.fade-element.visible {
     animation: fadeInUp 0.8s ease forwards;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .main-nav a {
@@ -128,79 +128,141 @@ main {
     display: none;
 }
 
-/* Tagline */
-.tagline {
+/* Main content */
+main {
+    position: relative;
+    z-index: 10;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 80px 60px;
+}
+
+/* Page header */
+.page-header {
     text-align: center;
-    padding: 60px 40px 120px;
-    opacity: 0;
-    transform: translateY(20px);
+    margin-bottom: 60px;
 }
 
-.tagline.visible {
-    animation: fadeInUp 0.8s ease forwards;
-}
-
-.tagline p {
-    font-family: 'Times New Roman', serif;
-    font-size: 32px;
-    line-height: 1.6;
+.page-header h2 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 100px;
+    font-weight: 700;
     color: #000000;
 }
 
-/* Talk to Us Button */
-.talk-to-us-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 100px 0;
-    padding: 50px 0;
-}
-
-.talk-to-us-button {
-    display: inline-block;
-    cursor: pointer;
-    transition: transform 0.3s ease;
-}
-
-.talk-to-us-button img {
-    width: 200px;
-    height: 200px;
-    animation: spin 8s linear infinite;
-}
-
-.talk-to-us-button:hover img {
-    animation-play-state: paused;
-}
-
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Fade in up animation */
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Fade elements */
-.fade-element {
+/* Page title fade-in */
+.page-header .fade-element {
     opacity: 0;
     transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page-header .fade-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Workshop content */
+.workshop-content {
+    max-width: 1000px;
+    margin: 60px auto 100px;
+}
+
+.intro-text {
+    margin-bottom: 50px;
+}
+
+.intro-text p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.section {
+    margin-bottom: 50px;
+}
+
+.section h3 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.section h4 {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 28px;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.section p {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 18px;
+    color: #000000;
+}
+
+.section ul,
+.section ol {
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.section li {
+    font-size: 20px;
+    line-height: 1.8;
+    margin-bottom: 12px;
+    color: #000000;
+}
+
+.section a {
+    color: #0066cc;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.section a:hover {
+    opacity: 0.7;
+    text-decoration: underline;
+}
+
+.section strong {
+    font-weight: 700;
+}
+
+.section em {
+    font-style: italic;
+}
+
+.faq-section {
+    background: #f9f9f9;
+    padding: 30px;
+    border-radius: 8px;
+    margin-top: 50px;
+}
+
+.faq-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.faq-item:last-of-type {
+    border-bottom: none;
 }
 
 /* Footer with dark blue background */
 .footer-waves {
     position: relative;
     width: 100%;
+    /*max-width: 1920px;*/
     height: 350px;
-    margin: 200px 0 0 0;
+    margin: 200px auto 0;
     overflow: visible;
     background: #1e3a5f;
 }
@@ -243,9 +305,9 @@ main {
 
 .footer-left h2 {
     font-family: 'wayfinder-cf', serif;
-    font-size: 24px;
+    font-size: 28px;
     font-weight: normal;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
 .email {
@@ -295,7 +357,7 @@ main {
 .social-header {
     font-family: 'wayfinder-cf', serif;
     font-size: 20px;
-    margin-bottom: 10px;
+    margin-bottom: 8px;
     line-height: 1.3;
 }
 
@@ -305,92 +367,58 @@ main {
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-    .background-pattern {
+    .page-background {
         width: 100%;
-        height: 1200px;
-        background-size: cover;
     }
     
-    .main-title {
-        font-size: 120px;
+    header {
+        padding: 200px 20px 30px;
     }
     
-    .title-line:first-child {
-        font-size: 120px;
+    .logo {
+        font-size: 65px;
     }
     
-    .title-line:last-child {
-        font-size: 150px;
+    .logo-line:last-child {
+        font-size: 80px;
     }
     
-    .hero-section {
-        margin-top: 900px;
+    main {
+        padding: 40px 50px;
     }
     
-    .main-nav {
-        gap: 35px;
+    .page-header h2 {
+        font-size: 75px;
     }
     
-    .main-nav a {
-        font-size: 24px;
+    .services-content {
+        gap: 60px;
     }
     
-    .tagline p {
-        font-size: 28px;
+    .service-column h3 {
+        font-size: 36px;
     }
     
     .footer-waves {
         height: 350px;
     }
-    
-    .footer-content {
-        padding: 0 50px;
-        bottom: 60px;
-    }
-    
-    .email {
-        font-size: 70px;
-    }
-    
-    .at-symbol {
-        width: 65px;
-        height: 65px;
-        line-height: 55px;
-        font-size: 55px;
-    }
-    
-    .footer-right {
-        gap: 80px;
-    }
 }
 
 @media (max-width: 768px) {
-    .background-pattern {
-        width: 100%;
-        background-size: cover;
-        height: 800px;
+    header {
+        padding: 180px 20px 25px;
     }
     
-    .main-title {
-        font-size: 80px;
+    .logo {
+        font-size: 50px;
     }
     
-    .title-line:first-child {
-        font-size: 80px;
-    }
-    
-    .title-line:last-child {
-        font-size: 100px;
-    }
-    
-    .hero-section {
-        margin-top: 600px;
+    .logo-line:last-child {
+        font-size: 62px;
     }
     
     .main-nav {
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 30px 20px;
+        gap: 25px;
     }
     
     .nav-break {
@@ -404,14 +432,34 @@ main {
         font-size: 20px;
     }
     
-    .tagline p {
-        font-size: 24px;
-        padding: 40px 30px 80px;
+    main {
+        padding: 30px 30px;
+    }
+    
+    .page-header h2 {
+        font-size: 60px;
+    }
+    
+    .intro {
+        font-size: 20px;
+    }
+    
+    .services-content {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        margin-bottom: 60px;
+    }
+    
+    .service-column h3 {
+        font-size: 32px;
+    }
+    
+    .service-column p {
+        font-size: 17px;
     }
     
     .footer-waves {
         height: 320px;
-        margin-top: 150px;
     }
     
     .footer-content {
@@ -424,10 +472,6 @@ main {
         bottom: auto;
     }
     
-    .footer-left h2 {
-        font-size: 28px;
-    }
-    
     .email {
         font-size: 50px;
     }
@@ -437,87 +481,76 @@ main {
         height: 50px;
         line-height: 42px;
         font-size: 42px;
-        border: 3px solid #ffffff;
     }
     
     .footer-right {
-        flex-direction: row;
         gap: 35px;
-        padding-bottom: 0;
     }
     
     .footer-social {
         margin-left: 25px;
     }
-    
-    .footer-column a {
-        font-size: 22px;
-    }
-    
-    .social-header {
-        font-size: 22px;
-    }
-    
-    .talk-to-us-button img {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .talk-to-us-container {
-        margin: 60px 0;
-        padding: 30px 0;
-    }
 }
 
 @media (max-width: 480px) {
-    .background-pattern {
-        height: 600px;
+    .page-background {
+        height: 180px;
     }
     
-    .main-title {
-        font-size: 60px;
+    header {
+        padding: 150px 15px 20px;
     }
     
-    .title-line:first-child {
-        font-size: 60px;
+    .logo {
+        font-size: 40px;
+        margin-bottom: 100px;
     }
     
-    .title-line:last-child {
-        font-size: 75px;
-    }
-    
-    .hero-section {
-        margin-top: 450px;
-        height: 30vh;
+    .logo-line:last-child {
+        font-size: 50px;
     }
     
     .main-nav {
         gap: 15px;
-        padding: 20px 15px;
     }
     
     .main-nav a {
         font-size: 22px;
     }
     
-    .tagline {
-        padding: 30px 20px 60px;
+    main {
+        padding: 25px 20px;
     }
     
-    .tagline p {
-        font-size: 20px;
+    .page-header {
+        margin-bottom: 50px;
+    }
+    
+    .page-header h2 {
+        font-size: 45px;
+    }
+    
+    .intro {
+        font-size: 18px;
+    }
+    
+    .service-column h3 {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .service-column p {
+        font-size: 22px;
+        line-height: 1.7;
+        margin-bottom: 20px;
     }
     
     .footer-waves {
         height: 280px;
-        margin-top: 100px;
+        margin-top: 60px;
     }
     
     .footer-content {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 20px;
         padding: 0 25px;
         top: 25px;
         bottom: auto;
@@ -525,11 +558,11 @@ main {
     
     .footer-left h2 {
         font-size: 18px;
-        margin-bottom: 8px;
     }
     
     .email {
         font-size: 28px;
+        font-size: 36px;
     }
     
     .at-symbol {
@@ -537,8 +570,6 @@ main {
         height: 32px;
         line-height: 28px;
         font-size: 26px;
-        border: 2px solid #ffffff;
-        margin: 0 3px;
     }
     
     .footer-right {
@@ -550,28 +581,13 @@ main {
         margin-left: 12px;
     }
     
-    .footer-column {
-        gap: 12px;
-    }
-    
     .footer-column a {
         font-size: 18px;
     }
     
     .social-header {
         font-size: 18px;
-        margin-bottom: 8px;
-    }
-    
-    .talk-to-us-button img {
-        width: 120px;
-        height: 120px;
-    }
-    
-    .talk-to-us-container {
-        margin: 40px 0;
-        padding: 20px 0;
     }
 }
 
-/* Updated: Mon Feb  2 13:28:04 UTC 2026 - Mobile footer lowered to 20px */
+/* Updated: Mon Feb  2 13:32:03 UTC 2026 - Mobile footer lowered to 20px */
