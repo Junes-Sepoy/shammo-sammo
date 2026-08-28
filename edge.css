@@ -129,6 +129,10 @@ header {
     opacity: 0.6;
 }
 
+.nav-break {
+    display: none;
+}
+
 /* Main content */
 main {
     position: relative;
@@ -151,10 +155,75 @@ main {
     color: #000000;
 }
 
-/* Edge Content */
+/* Edge title fade-in */
+.page-header .fade-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.page-header .fade-element.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Edge options */
+.edge-options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.edge-option-btn {
+    font-family: 'wayfinder-cf', serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #000000;
+    background: transparent;
+    border: 3px solid #000000;
+    border-radius: 50px;
+    padding: 16px 40px;
+    cursor: url('edge-cursor.png') 24 24, pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease, background 0.25s ease, color 0.25s ease;
+}
+
+.edge-option-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.edge-option-btn:hover {
+    background: #000000;
+    color: #ffffff;
+}
+
+.edge-option-btn.active {
+    background: #1e3a5f;
+    border-color: #1e3a5f;
+    color: #ffffff;
+}
+
+/* Edge Content (reserved for future use) */
+.edge-content-panels {
+    margin-top: 60px;
+}
+
 .edge-content {
     max-width: 1000px;
     margin: 0 auto 100px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.edge-content.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .intro-text {
@@ -410,8 +479,24 @@ main {
         gap: 25px;
     }
     
+    .nav-break {
+        display: block;
+        width: 100%;
+        flex-basis: 100%;
+        height: 0;
+    }
+    
     .main-nav a {
         font-size: 20px;
+    }
+    
+    .edge-options {
+        gap: 16px;
+    }
+    
+    .edge-option-btn {
+        font-size: 20px;
+        padding: 12px 26px;
     }
     
     main {
@@ -447,10 +532,11 @@ main {
     .footer-content {
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-start;
         gap: 40px;
         padding: 0 40px;
-        bottom: 120px;
-        align-items: flex-end;
+        top: 40px;
+        bottom: auto;
     }
     
     .email {
@@ -462,6 +548,14 @@ main {
         height: 50px;
         line-height: 42px;
         font-size: 42px;
+    }
+    
+    .footer-right {
+        gap: 35px;
+    }
+    
+    .footer-social {
+        margin-left: 25px;
     }
 }
 
@@ -489,6 +583,20 @@ main {
     
     .main-nav a {
         font-size: 22px;
+    }
+    
+    .edge-options {
+        flex-wrap: nowrap;
+        gap: 8px;
+        margin-top: 15px;
+    }
+    
+    .edge-option-btn {
+        font-size: 12px;
+        font-weight: 700;
+        padding: 8px 14px;
+        border-width: 2px;
+        white-space: nowrap;
     }
     
     main {
@@ -525,7 +633,8 @@ main {
     
     .footer-content {
         padding: 0 25px;
-        bottom: 20px;
+        top: 25px;
+        bottom: auto;
     }
     
     .footer-left h2 {
@@ -546,7 +655,11 @@ main {
     
     .footer-right {
         flex-direction: row;
-        gap: 25px;
+        gap: 14px;
+    }
+    
+    .footer-social {
+        margin-left: 12px;
     }
     
     .footer-column a {
